@@ -31,20 +31,19 @@ log "Installing yay"
 git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && cd .. && rm -rf yay
 
 log "Installing programs"
-yay -S kitty flameshot discord spotify telegram-desktop-bin visual-studio-code-bin github-desktop-bin brave-bin minecraft-launcher spicetify-cli ffmpeg4.4 zenity
+yay -S kitty flameshot discord spotify telegram-desktop-bin visual-studio-code-bin github-desktop-bin brave-bin minecraft-launcher spicetify-cli ffmpeg4.4 zenity vlc obs-studio-git
 
-log "Install Tela Circle icons"
-git clone "https://github.com/vinceliuice/Tela-circle-icon-theme" && cd Tela-circle-icon-theme && chmod +x install.sh && ./install.sh -a && cd .. && rm -rf Tela-circle-icon-theme
+#log "Install Tela Circle icons"
+#git clone "https://github.com/vinceliuice/Tela-circle-icon-theme" && cd Tela-circle-icon-theme && chmod +x install.sh && ./install.sh -a && cd .. && rm -rf Tela-circle-icon-theme
 
-log "Installing themes"
-yay -S catppuccin-kde-theme-git catppuccin-gtk-theme-mocha catppuccin-mocha-dark-cursors 
+log "Installing catppuccin"
+yay -S catppuccin-kde-theme-git catppuccin-gtk-theme-mocha catppuccin-wallpapers-git sddm-theme-catppuccin-git
+git clone https://github.com/catppuccin/cursors.git
+cd cursors && cd cursors
+sudo cp -r * /usr/share/icons
 
 log "Installing lightly application style"
 sudo pacman -S lightly-qt
 
 log "Installing fonts"
 yay -S nerd-fonts-complete ttf-apple-emoji
-
-log "Configuring grub"
-sudo curl -s "https://pastebin.com/raw/bsSPHejP" -o /etc/default/grub
-sudo update-grub
