@@ -40,6 +40,7 @@ log "Installing catppuccin"
 yay -S catppuccin-kde-theme-git catppuccin-gtk-theme-mocha catppuccin-wallpapers-git sddm-theme-catppuccin-git
 git clone https://github.com/catppuccin/cursors.git
 cd cursors && cd cursors
+echo *
 sudo cp -r * /usr/share/icons
 
 log "Installing lightly application style"
