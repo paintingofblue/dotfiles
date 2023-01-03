@@ -3,8 +3,10 @@ function log() {
     echo -e "\n\033[32m[+]\033[0m $msg\n"
 }
 
-log "Fetching and updating grub"
-sudo curl -s "https://raw.githubusercontent.com/paintingofblue/Artix/main/grub/grub" -o /etc/default/grub
+log "Configuring grub"
+sudo sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet"/GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=0 udev.log_level=0 vt.global_cursor_default==0 console=tty2"/g' /etc/default/grub
+sudo sed -i 's/GRUB_TIMEOUT=3/GRUB_TIMEOUT=0/g' /etc/default/grub
+sudo sed -i 's/GRUB_GFXMODE="1024x768,800x600"/GRUB_GFXMODE=1920x1080/g' /etc/default/grub
 sudo update-grub
 
 log "Initiating pacman key"
@@ -13,9 +15,6 @@ sudo pacman-key --populate artix
 
 log "Fetching arch mirrorlist"
 sudo curl -s "https://archlinux.org/mirrorlist/?country=NZ&protocol=https&ip_version=4&use_mirror_status=on" | sed -e "s/^#Server/Server/" -e "/^#/d" | sudo tee /etc/pacman.d/mirrorlist-arch
-
-log "Fetching pacman config"
-sudo curl -s "https://raw.githubusercontent.com/paintingofblue/Artix/main/pacman/pacman.conf" -o /etc/pacman.conf
 
 log "Installing Chaotic"
 sudo pacman -Syyu
