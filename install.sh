@@ -3,6 +3,10 @@ function log() {
     echo -e "\n\033[32m[+]\033[0m $msg\n"
 }
 
+log "Fetching and updating grub"
+sudo curl -s "https://raw.githubusercontent.com/paintingofblue/Artix/main/grub/grub" -o /etc/default/grub
+sudo update-grub
+
 log "Initiating pacman key"
 sudo pacman-key --init
 sudo pacman-key --populate artix
@@ -25,13 +29,17 @@ log "Updating pacman after installing Chaotic"
 sudo pacman -Syyu
 
 log "Installing dependencies"
-sudo pacman -S base-devel git wget artix-archlinux-support
+echo -e "\ny\n" | sudo pacman -S base-devel git wget artix-archlinux-support
+sudo pacman-key --populate archlinux
 
 log "Installing yay"
-git clone https://aur.archlinux.org/yay.git && cd yay && echo -e "y\ny\n" | makepkg -si && cd .. && rm -rf yay
+git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && cd .. && rm -rf yay
 
 log "Installing programs"
-yay -S kitty flameshot discord spotify telegram-desktop-bin visual-studio-code-bin github-desktop-bin brave-bin minecraft-launcher spicetify-cli ffmpeg4.4 zenity vlc obs-studio-git appmenu-gtk-module appmenu-gtk2-module appmenu-gtk3-module appmenu-qt5 gtk-engines bleachbit-git cleanerml-git fabric-installer spicetify-cli 
+yay -S kitty flameshot discord spotify telegram-desktop-bin visual-studio-code-bin github-desktop-bin brave-bin minecraft-launcher vlc obs-studio-git bleachbit-git cleanerml-git fabric-installer spicetify-cli 
+
+log "Installing AUR dependencies"
+yay -S ffmpeg4.4 zenity appmenu-gtk-module gtk-engines
 
 log "Installing catppuccin themes"
 yay -S catppuccin-kde-theme-git catppuccin-gtk-theme-mocha catppuccin-wallpapers-git sddm-theme-catppuccin-git
@@ -39,9 +47,10 @@ yay -S catppuccin-kde-theme-git catppuccin-gtk-theme-mocha catppuccin-wallpapers
 log "Installing catppuccin cursors"
 git clone https://github.com/catppuccin/cursors.git
 cd cursors && cd cursors
-echo *
-sleep 2
-sudo cp -r * /usr/share/icons
+
+shopt -s extglob
+rm -v -rf !("Catppuccin-Mocha-Pink-Cursors.zip") && sudo unzip Catppuccin-Mocha-Pink-Cursors.zip -d /usr/share/icons
+shopt -u extglob
 
 log "Installing lightly application style"
 sudo pacman -S lightly-qt
@@ -53,6 +62,3 @@ log "Installing adblock"
 yay -S blokator
 sudo blokator --sync
 sudo blokator --apply
-
-log "Installing grub config"
-sudo curl -s "https://raw.githubusercontent.com/paintingofblue/Artix/main/grub/grub" -o /etc/default/grub
