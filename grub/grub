@@ -1,7 +1,7 @@
 GRUB_DEFAULT="0"
 GRUB_TIMEOUT="0"
 GRUB_DISTRIBUTOR="Artix"
-GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=0 console=tty2 udev.log_level=0 vt.global_cursor_default==0"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=0 udev.log_level=0 vt.global_cursor_default==0 console=tty2"
 GRUB_CMDLINE_LINUX="net.ifnames=0"
 
 # Preload both GPT and MBR modules so that they are not missed
