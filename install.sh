@@ -38,7 +38,7 @@ log "Installing yay"
 git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && cd .. && rm -rf yay
 
 log "Installing programs"
-yay -S kitty flameshot discord spotify telegram-desktop-bin visual-studio-code-bin github-desktop-bin brave-bin minecraft-launcher vlc obs-studio-git bleachbit-git cleanerml-git fabric-installer spicetify-cli 
+yay -S kitty flameshot discord spotify telegram-desktop-bin visual-studio-code-bin github-desktop-bin brave-bin minecraft-launcher vlc obs-studio-git bleachbit-git cleanerml-git fabric-installer spicetify-cli steam neovim 
 
 log "Installing AUR dependencies"
 yay -S ffmpeg4.4 zenity appmenu-gtk-module gtk-engines
@@ -64,3 +64,12 @@ log "Installing adblock"
 yay -S blokator
 sudo blokator --sync
 sudo blokator --apply
+
+log "Fetching kitty config"
+curl -s "https://raw.githubusercontent.com/paintingofblue/Artix/main/kitty/kitty.conf" -o ~/.config/kitty/kitty.conf
+
+log "Uninstalling unwanted programs"
+sudo pacman -R falkon konqueror plasma-workspace-wallpapers gwenview okular mpv 
+
+log "Clear cache"
+sudo rm -rf ~/.cache/*
