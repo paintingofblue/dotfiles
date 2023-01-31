@@ -75,4 +75,4 @@ log "Clear cache"
 sudo rm -rf ~/.cache/*
 
 log "Installing dotfiles"
-yay -S chezmoi picom-animations-git pamixer xorg-xinit inter-font ttf-firacode-nerd cava kitty neofetch flameshot playerctl jq recode moreutils xqp xdo bspwm sxhkd xinit xinput elogind xorg feh betterlockscreen dunst picom xdg-user-dirs rofi eww polybar lxterminal zsh thunar gvfs file-roller lxappearance playercttl networkmanager brightnessctl pulseaudio maim
+yay -S chezmoi picom-animations-git pamixer xorg-xinit inter-font ttf-firacode-nerd cava kitty neofetch flameshot jq recode moreutils xqp xdo bspwm sxhkd xinit xinput elogind xorg feh betterlockscreen ssx-lock dunst picom xdg-user-dirs rofi eww polybar ttf-ubuntu-mono-nerd zsh thunar gvfs file-roller lxappearance kripton-theme-git playerctl networkmanager brightnessctl pulseaudio maim
