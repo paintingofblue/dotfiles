@@ -40,19 +40,8 @@ git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && cd .. &&
 log "Installing programs"
 yay -S kitty flameshot discord spotify telegram-desktop-bin visual-studio-code-bin github-desktop-bin brave-bin minecraft-launcher vlc obs-studio-git bleachbit-git cleanerml-git fabric-installer spicetify-cli steam neovim 
 
-log "Installing AUR dependencies"
+log "Installing dependencies"
 yay -S ffmpeg4.4 zenity appmenu-gtk-module gtk-engines
-
-log "Installing catppuccin themes"
-yay -S catppuccin-kde-theme-git catppuccin-gtk-theme-mocha catppuccin-wallpapers-git sddm-theme-catppuccin-git
-
-log "Installing catppuccin cursors"
-git clone https://github.com/catppuccin/cursors.git
-cd cursors && cd cursors
-
-shopt -s extglob
-rm -v -rf !("Catppuccin-Mocha-Pink-Cursors.zip") && sudo unzip Catppuccin-Mocha-Pink-Cursors.zip -d /usr/share/icons
-shopt -u extglob
 
 log "Installing lightly application style"
 sudo pacman -S lightly-qt
