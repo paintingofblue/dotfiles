@@ -4,6 +4,7 @@ green="\033[32m"
 red="\033[31m"
 reset="\033[0m"
 
+# <-- Functions -->
 function log() {
     msg=$1
     echo -e "\n$green[+]$reset $msg\n"
@@ -14,6 +15,7 @@ function error() {
     echo -e "\n$green[!]$reset $msg\n"
 }
 
+# <-- Main -->
 log "Configuring grub"
 sudo sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet"/GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=0 udev.log_level=0 vt.global_cursor_default==0 console=tty2"/g' /etc/default/grub
 sudo sed -i 's/GRUB_TIMEOUT="3"/GRUB_TIMEOUT="0"/g' /etc/default/grub
@@ -51,6 +53,9 @@ git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && cd .. &&
 log "Installing programs"
 yay -S kitty flameshot discord spotify telegram-desktop-bin visual-studio-code-bin github-desktop-bin brave-bin minecraft-launcher vlc obs-studio-git bleachbit-git cleanerml-git fabric-installer spicetify-cli steam neovim 
 
+log "Install programming languages"
+yay -S rustup
+
 log "Installing dependencies"
 yay -S appmenu-gtk-module gtk-engines
 
@@ -65,6 +70,9 @@ yay -S blokator
 sudo blokator --sync
 sudo blokator --apply
 
+log "Installing dotfiles"
+yay -S betterlockscreen brightnessctl bspwm cava chezmoi dunst eww feh file-roller gvfs inter-font jq kripton-theme-git lxappearance maim moreutils pamixer picom picom-animations-git playerctl polybar recode rofi sxhkd thunar ttf-firacode-nerd ttf-ubuntu-mono-nerd xdg-user-dirs xdo xorg xqp
+
 log "Fetching kitty config"
 curl -s "https://raw.githubusercontent.com/paintingofblue/Artix/main/kitty/kitty.conf" -o ~/.config/kitty/kitty.conf
 
@@ -73,6 +81,3 @@ sudo pacman -R falkon konqueror plasma-workspace-wallpapers gwenview okular mpv
 
 log "Clear cache"
 sudo rm -rf ~/.cache/*
-
-log "Installing dotfiles"
-yay -S chezmoi picom-animations-git pamixer xorg-xinit inter-font ttf-firacode-nerd cava kitty neofetch flameshot jq recode moreutils xqp xdo bspwm sxhkd xinit xinput elogind xorg feh betterlockscreen ssx-lock dunst picom xdg-user-dirs rofi eww polybar ttf-ubuntu-mono-nerd zsh thunar gvfs file-roller lxappearance kripton-theme-git playerctl networkmanager brightnessctl pulseaudio maim
