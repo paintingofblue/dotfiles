@@ -1,6 +1,17 @@
+# <-- Variables -->
+# Colors
+green="\033[32m"
+red="\033[31m"
+reset="\033[0m"
+
 function log() {
     msg=$1
-    echo -e "\n\033[32m[+]\033[0m $msg\n"
+    echo -e "\n$green[+]$reset $msg\n"
+}
+
+function error() {
+    msg=$1
+    echo -e "\n$green[!]$reset $msg\n"
 }
 
 log "Configuring grub"
@@ -41,7 +52,7 @@ log "Installing programs"
 yay -S kitty flameshot discord spotify telegram-desktop-bin visual-studio-code-bin github-desktop-bin brave-bin minecraft-launcher vlc obs-studio-git bleachbit-git cleanerml-git fabric-installer spicetify-cli steam neovim 
 
 log "Installing dependencies"
-yay -S ffmpeg4.4 zenity appmenu-gtk-module gtk-engines
+yay -S appmenu-gtk-module gtk-engines
 
 log "Installing lightly application style"
 sudo pacman -S lightly-qt
@@ -62,3 +73,6 @@ sudo pacman -R falkon konqueror plasma-workspace-wallpapers gwenview okular mpv
 
 log "Clear cache"
 sudo rm -rf ~/.cache/*
+
+log "Installing dotfiles"
+yay -S chezmoi picom-animations-git pamixer xorg-xinit inter-font ttf-firacode-nerd cava kitty neofetch flameshot playerctl jq recode moreutils xqp xdo bspwm sxhkd xinit xinput elogind xorg feh betterlockscreen dunst picom xdg-user-dirs rofi eww polybar lxterminal zsh thunar gvfs file-roller lxappearance playercttl networkmanager brightnessctl pulseaudio maim
