@@ -55,6 +55,7 @@ yay -S kitty flameshot discord spotify telegram-desktop-bin visual-studio-code-b
 
 log "Install programming languages"
 yay -S rustup
+rustup default stable
 
 log "Installing dependencies"
 yay -S appmenu-gtk-module gtk-engines
@@ -63,7 +64,7 @@ log "Installing lightly application style"
 sudo pacman -S lightly-qt
 
 log "Installing fonts"
-yay -S nerd-fonts-complete ttf-apple-emoji
+yay -S ttf-apple-emoji
 
 log "Installing adblock"
 yay -S blokator
