@@ -1,8 +1,13 @@
+#!/usr/bin/env bash
+# shellcheck disable=SC1087
+
 # <-- Variables -->
 # Colors
 green="\033[32m"
 red="\033[31m"
 reset="\033[0m"
+
+#
 
 # <-- Functions -->
 function log() {
@@ -51,7 +56,7 @@ log "Installing yay"
 git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && cd .. && rm -rf yay
 
 log "Installing programs"
-yay -S kitty flameshot discord spotify telegram-desktop-bin visual-studio-code-bin github-desktop-bin brave-bin minecraft-launcher vlc obs-studio-git bleachbit-git cleanerml-git fabric-installer spicetify-cli steam neovim 
+yay -S kitty flameshot discord spotify telegram-desktop-bin visual-studio-code-bin github-desktop-bin brave-bin minecraft-launcher vlc obs-studio-git bleachbit-git cleanerml-git fabric-installer spicetify-cli steam neovim
 
 log "Install programming languages"
 yay -S rustup
@@ -74,11 +79,8 @@ sudo blokator --apply
 log "Installing dotfiles"
 yay -S betterlockscreen brightnessctl bspwm cava chezmoi dunst eww feh file-roller gvfs inter-font jq kripton-theme-git lxappearance maim moreutils pamixer picom picom-animations-git playerctl polybar recode rofi sxhkd thunar ttf-firacode-nerd ttf-ubuntu-mono-nerd xdg-user-dirs xdo xorg xqp
 
-log "Fetching kitty config"
-curl -s "https://raw.githubusercontent.com/paintingofblue/Artix/main/kitty/kitty.conf" -o ~/.config/kitty/kitty.conf
-
 log "Uninstalling unwanted programs"
-sudo pacman -R falkon konqueror plasma-workspace-wallpapers gwenview okular mpv 
+sudo pacman -R falkon konqueror plasma-workspace-wallpapers gwenview okular mpv
 
 log "Clear cache"
 sudo rm -rf ~/.cache/*
