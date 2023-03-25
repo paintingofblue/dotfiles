@@ -1,13 +1,11 @@
 #!/usr/bin/env bash
-# shellcheck disable=SC1087
+# shellcheck disable=SC1087 disable=SC2034 disable=SC2164
 
 # <-- Variables -->
 # Colors
 green="\033[32m"
 red="\033[31m"
 reset="\033[0m"
-
-#
 
 # <-- Functions -->
 function log() {
@@ -37,7 +35,7 @@ sudo curl -s "https://archlinux.org/mirrorlist/?country=NZ&protocol=https&ip_ver
 log "Fetching pacman config"
 sudo curl -s "https://raw.githubusercontent.com/paintingofblue/Artix/main/pacman/pacman.conf" -o /etc/pacman.conf
 
-log "Installing Chaotic"
+log "Installing Chaotic AUR"
 sudo pacman -Syyu
 sudo pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com
 sudo pacman-key --lsign-key FBA220DFC880C036
@@ -53,7 +51,10 @@ sudo pacman -S base-devel git wget artix-archlinux-support
 sudo pacman-key --populate archlinux
 
 log "Installing yay"
-git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && cd .. && rm -rf yay
+git clone https://aur.archlinux.org/yay.git
+cd yay || exit
+makepkg -si
+rm -rf yay
 
 log "Installing programs"
 yay -S kitty flameshot discord spotify telegram-desktop-bin visual-studio-code-bin github-desktop-bin brave-bin minecraft-launcher vlc obs-studio-git bleachbit-git cleanerml-git fabric-installer spicetify-cli steam neovim
@@ -76,7 +77,7 @@ yay -S blokator
 sudo blokator --sync
 sudo blokator --apply
 
-log "Installing dotfiles"
+log "Installing things needed for dotfiles"
 yay -S betterlockscreen brightnessctl bspwm cava chezmoi dunst eww feh file-roller gvfs inter-font jq kripton-theme-git lxappearance maim moreutils pamixer picom picom-animations-git playerctl polybar recode rofi sxhkd thunar ttf-firacode-nerd ttf-ubuntu-mono-nerd xdg-user-dirs xdo xorg xqp
 
 log "Uninstalling unwanted programs"
