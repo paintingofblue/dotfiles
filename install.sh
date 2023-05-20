@@ -7,6 +7,7 @@ green="\033[32m"
 red="\033[31m"
 reset="\033[0m"
 
+
 # <-- Functions -->
 function log() {
     msg=$1
@@ -17,6 +18,7 @@ function error() {
     msg=$1
     echo -e "\n$green[!]$reset $msg\n"
 }
+
 
 # <-- Main -->
 log "Configuring grub"
@@ -36,7 +38,7 @@ sudo curl -s "https://archlinux.org/mirrorlist/?country=NZ&protocol=https&ip_ver
 
 
 log "Fetching pacman config"
-sudo curl -s "https://raw.githubusercontent.com/paintingofblue/dotfiles/main/cfg/pacman/pacman.conf" -o /etc/pacman.conf
+sudo mv ~/cfg/pacman/pacman.conf /etc/pacman.conf
 
 
 log "Installing Chaotic AUR"
@@ -52,7 +54,7 @@ log "Updating pacman after installing Chaotic"
 sudo pacman -Syyu
 
 
-log "Installing dependencies"
+log "Installing dependencies for most programs"
 sudo pacman -S base-devel git wget artix-archlinux-support
 sudo pacman-key --populate archlinux
 
@@ -96,11 +98,18 @@ sudo blokator --apply
 
 
 log "Installing things needed for my rice"
-yay -S betterlockscreen brightnessctl bspwm cava chezmoi dunst eww feh file-roller gvfs inter-font jq kripton-theme-git lxappearance maim moreutils pamixer picom-animations-git playerctl polybar-git recode rofi sxhkd thunar ttf-firacode-nerd ttf-ubuntu-mono-nerd xdg-user-dirs xdo xorg xqp
+yay -S betterlockscreen brightnessctl bspwm dunst eww feh file-roller gvfs inter-font jq kripton-theme-git lxappearance maim moreutils pamixer picom-animations-git playerctl polybar-git rofi sxhkd thunar ttf-firacode-nerd ttf-ubuntu-mono-nerd xdg-user-dirs xdo xorg xqp
 
 
 log "Installing the actual configuration files"
+# iterate through each directory in cfg, print if the file name is pacman or not
+for dir in ~/cfg/*; do
+    if [[ $dir != "pacman" ]];
+    then
+        mv "$dir" "$HOME"/.config/"$dir"
+    fi
+done
 
 
 log "Clear cache"
-sudo rm -rf ~/.cache/*
+sudo rm -rf "$HOME"/.cache/*
