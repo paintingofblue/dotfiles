@@ -38,7 +38,7 @@ sudo curl -s "https://archlinux.org/mirrorlist/?country=NZ&protocol=https&ip_ver
 
 
 log "Fetching pacman config"
-sudo mv ~/cfg/pacman/pacman.conf /etc/pacman.conf
+sudo cp cfg/pacman/pacman.conf /etc/pacman.conf
 
 
 log "Installing Chaotic AUR"
@@ -80,7 +80,7 @@ rustup default stable
 
 
 log "Installing dependencies"
-yay -S appmenu-gtk-module gtk-engines
+yay -S appmenu-gtk-module gtk-engines libappindicator-gtk2 libappindicator-gtk3
 
 
 log "Installing lightly application style"
@@ -88,7 +88,7 @@ sudo pacman -S lightly-qt
 
 
 log "Installing fonts"
-yay -S ttf-apple-emoji
+yay -S ttf-apple-emoji ttf-firacode-nerd ttf-ubuntu-mono-nerd inter-font
 
 
 log "Installing adblock"
@@ -98,15 +98,14 @@ sudo blokator --apply
 
 
 log "Installing things needed for my rice"
-yay -S betterlockscreen brightnessctl bspwm dunst eww feh file-roller gvfs inter-font jq kripton-theme-git lxappearance maim moreutils pamixer picom-animations-git playerctl polybar-git rofi sxhkd thunar ttf-firacode-nerd ttf-ubuntu-mono-nerd xdg-user-dirs xdo xorg xqp
+yay -S betterlockscreen brightnessctl bspwm dunst eww feh file-roller gvfs jq kripton-theme-git lxappearance maim moreutils pamixer picom-animations-git playerctl polybar-git rofi sxhkd thunar xdg-user-dirs xdo xorg xqp
 
 
 log "Installing the actual configuration files"
-# iterate through each directory in cfg, print if the file name is pacman or not
-for dir in ~/cfg/*; do
+for dir in /cfg/*; do
     if [[ $dir != "pacman" ]];
     then
-        mv "$dir" "$HOME"/.config/"$dir"
+        cp "/cfg/$dir" "$HOME"/.config/"$dir"
     fi
 done
 
