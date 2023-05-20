@@ -21,11 +21,11 @@ function error() {
 
 
 # <-- Main -->
-log "Configuring grub"
-sudo sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet"/GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=0 udev.log_level=0 vt.global_cursor_default==0 console=tty2"/g' /etc/default/grub
-sudo sed -i 's/GRUB_TIMEOUT="3"/GRUB_TIMEOUT="0"/g' /etc/default/grub
-sudo sed -i 's/GRUB_GFXMODE="1024x768,800x600"/GRUB_GFXMODE=1920x1080/g' /etc/default/grub
-sudo update-grub
+# log "Configuring grub"
+# sudo sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet"/GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=0 udev.log_level=0 vt.global_cursor_default==0 console=tty2"/g' /etc/default/grub
+# sudo sed -i 's/GRUB_TIMEOUT="3"/GRUB_TIMEOUT="0"/g' /etc/default/grub
+# sudo sed -i 's/GRUB_GFXMODE="1024x768,800x600"/GRUB_GFXMODE=1920x1080/g' /etc/default/grub
+# sudo update-grub
 
 
 log "Initiating and populating pacman key"
@@ -101,13 +101,13 @@ log "Installing things needed for my rice"
 yay -S betterlockscreen brightnessctl bspwm dunst eww feh file-roller gvfs jq kripton-theme-git lxappearance maim moreutils pamixer picom-animations-git playerctl polybar-git rofi sxhkd thunar xdg-user-dirs xdo xorg xqp
 
 
-log "Installing the actual configuration files"
-for dir in /cfg/*; do
-    if [[ $dir != "pacman" ]];
-    then
-        cp "/cfg/$dir" "$HOME"/.config/"$dir"
-    fi
-done
+# log "Installing the actual configuration files"
+# for dir in "cfg/"; do
+#     if [[ $dir != "pacman" ]];
+#     then
+#         cp "$dir" "$HOME"/.config/"$dir"
+#     fi
+# done
 
 
 log "Clear cache"
