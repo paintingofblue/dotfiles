@@ -1,0 +1,214 @@
+/** Global *******************************************/
+// $accent: #7c94bf;
+$accent: #fff;
+$accent-secondary: darken($accent, 10%);
+$bg: #131313;
+$bg-secondary: lighten($bg, 3%);
+$bg-tertiary: lighten($bg-secondary, 5%);
+$bg-tertiary-alt: #313131;
+
+* {
+    all: unset;
+    font-family: Ubuntu Mono Nerd Font;
+    color: $accent;
+}
+
+/** Background ***************************************/
+.background {
+    background-color: $bg;
+    border-radius: 12px;
+    padding: 10px;
+}
+
+/** Generic window ***********************************/
+.genwin {
+    background-color: $bg-secondary;
+    border-radius: 16px;
+    padding: 5px;
+}
+
+/* Network ********************************************/
+// .btn_net {}
+
+.network {
+    font-size: 22px;
+    /*color: #f7e1d3;*/
+}
+
+/* Bluetooth ******************************************/
+.btn_bluet {
+    font-size: 22px;
+}
+
+.bluetooth {
+    font-size: 26px;
+    // /*color: #f7e1d3;*/
+}
+
+/* Battery **********************************************/
+.battery {
+    padding-top: 30px;
+    font-size: 25px;
+}
+
+.baticon {
+    font-size: 26px;
+}
+
+/* Microphone *****************************************/
+.btn_mic {
+    font-size: 32px;
+}
+
+/** System Sliders ********************************************/
+.slidersbox {
+    padding: 4px;
+}
+
+.iconbright {
+    font-size: 32px;
+    font-weight: normal;
+    /*color: #eed49f;*/
+}
+
+.bright_bar scale trough {
+    all: unset;
+    background-color: $bg-tertiary;
+    border-radius: 16px;
+    min-height: 20px;
+    min-width: 240px;
+    margin-right: 10px;
+}
+
+.bright_bar scale trough highlight {
+    all: unset;
+    border-radius: 16px;
+    /*background-color: #eed49f;*/
+    background-color: $accent;
+}
+
+.iconvolume {
+    font-size: 32px;
+    font-weight: normal;
+    margin-left: 4px;
+}
+
+.volume_bar scale trough {
+    all: unset;
+    background-color: $bg-tertiary;
+    border-radius: 16px;
+    min-height: 20px;
+    min-width: 240px;
+    margin-right: 10px;
+}
+
+.volume_bar scale trough highlight {
+    all: unset;
+    border-radius: 16px;
+    background-color: $accent;
+}
+
+.iconmic {
+    font-size: 32px;
+    font-weight: normal;
+    margin-left: 4px;
+}
+
+.mic_bar scale trough {
+    all: unset;
+    background-color: $bg-tertiary;
+    border-radius: 16px;
+    min-height: 20px;
+    min-width: 240px;
+    margin-right: 10px;
+}
+
+.mic_bar scale trough highlight {
+    all: unset;
+    border-radius: 16px;
+    background-color: $accent;
+}
+
+/** Music ***************************************/
+.album_art {
+    background-size: 180px;
+    min-height: 180px;
+    min-width: 180px;
+    margin: 4px;
+    border-radius: 14px;
+}
+
+.song {
+    // color: #8FBCBB;
+    font-size: 23px;
+    font-weight: bold;
+    margin: 30px 0px 0px 0px;
+}
+
+.artist {
+    // color: #Eed49f;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0px 0px 15px 0px;
+}
+
+.btn_prev {
+    font-size: 32px;
+    font-weight: normal;
+}
+
+.btn_play {
+    font-size: 35px;
+    font-weight: bold;
+    margin-left: -12px;
+}
+
+.btn_next {
+    font-size: 32px;
+    font-weight: normal;
+}
+
+/** Calendar *******************************************/
+
+.cal {
+    padding: 5px 5px 0px 5px;
+    border: transparent;
+    font-size: 19px;
+}
+
+calendar {
+    color: #777777;
+}
+
+calendar:selected {
+    color: #eeeeee;
+}
+
+calendar.header {
+    // color: #a1bdce;
+    color: $accent-secondary;
+    font-weight: bold;
+}
+
+calendar.button {
+    color: #afbea2;
+}
+
+calendar.highlight {
+    // color: #a1bdce;
+    font-weight: bold;
+}
+
+calendar:indeterminate {
+    // color: #242424;
+    color: $bg-tertiary-alt;
+}
+
+/** Power buttons ***************************************/
+.btn_poweroff {
+    font-size: 25px;
+    padding: 8px 0;
+    margin: 0px 4px 0px -5px;
+}
+
+/** EOF *************************************************/
