@@ -4,7 +4,7 @@
 FILE="$HOME/.cache/eww_launch.dashboard"
 CFG="$HOME/.config/eww/dashboard"
 
- 
+
 run_eww() {
 	eww daemon
 	until pid=$(pidof eww)
@@ -14,10 +14,11 @@ run_eww() {
 	eww --config "$CFG" open dashboard
 }
 
-if [[ ! -f "$FILE" ]]; then
+if [[ ! -f "$FILE" ]];
+then
 	touch "$FILE"
  	run_eww
- else
+else
  	eww --config "$CFG" close dashboard
  	rm "$FILE"
- fi
+fi
