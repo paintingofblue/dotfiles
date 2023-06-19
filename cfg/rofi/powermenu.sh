@@ -16,8 +16,7 @@ reboot=" Reboot"
 selected_option=$(echo "$lock
 $logout
 $reboot
-$shutdown" | rofi -dmenu -i -p "Powermenu" \
-		  -theme "$HOME/.config/rofi/powermenu.rasi")
+$shutdown" | rofi -dmenu -i -p "Powermenu" -theme "$HOME/.config/rofi/powermenu.rasi")
 
 if [ "$selected_option" == "$lock" ]
 then

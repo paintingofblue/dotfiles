@@ -67,7 +67,7 @@ rm -rf yay
 
 
 log "Installing programs"
-yay -S kitty flameshot discord spotify telegram-desktop-bin visual-studio-code-bin github-desktop-bin brave-bin minecraft-launcher vlc obs-studio-git bleachbit-git cleanerml-git fabric-installer spicetify-cli steam neovim
+yay -S kitty flameshot discord spotify telegram-desktop-bin visual-studio-code-bin github-desktop-bin firefox minecraft-launcher vlc obs-studio-git bleachbit-git cleanerml-git fabric-installer spicetify-cli steam neovim
 
 
 log "Uninstalling unneeded programs"
@@ -80,7 +80,7 @@ rustup default stable
 
 
 log "Installing dependencies"
-yay -S appmenu-gtk-module gtk-engines libappindicator-gtk2 libappindicator-gtk3
+yay -S appmenu-gtk-module gtk-engines gtk-engine-murrine gnome-themes-extra libappindicator-gtk2 libappindicator-gtk3
 
 
 log "Installing lightly application style"
