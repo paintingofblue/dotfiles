@@ -2,39 +2,31 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 feh --bg-scale "$HOME"/.config/background &
-picom &
+picom --experimental-backends &
 polybar -r &
 flameshot &
 dunst &
-xinput set-prop 12 "libinput Disable While Typing Enabled" 0 &
-xinput set-prop 12 "libinput Accel Speed" 0.35 &
 xsetroot -cursor_name left_ptr &
 
 # xinput --> get desired id
 # xinput list-props id --> get desired props
-xinput set-prop 13 304 1
-xinput set-prop 13 283 1
+xinput set-prop 12 "libinput Disable While Typing Enabled" 0
+xinput set-prop 12 "libinput Accel Speed" 0.35
 setxkbmap -layout pc104
 
 bspc monitor -d 1 2 3 4 5 6 7 8 9
 
-bspc config border_width           4
+bspc config border_width           0
 bspc config window_gap             5
 
 bspc config split_ratio            0.50
-bspc config borderless_monocle     true
-bspc config gapless_monocle        false
+#bspc config borderless_monocle     true
+bspc config gapless_monocle        true
 
 bspc config top_padding            40
 
 bspc config pointer_follows_focus  false
 bspc config focus_follows_pointer  true
 
-bspc config normal_border_color    "#131313"
-bspc config focused_border_color   "#202020"
-
 betterlockscreen -u "$HOME"/.config/background
 xss-lock -- betterlockscreen -l
-
-xinput set-prop 13 "libinput Disable While Typing Enabled" 0
-xinput set-prop 13 "libinput Accel Speed" 0.35

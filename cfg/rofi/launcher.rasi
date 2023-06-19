@@ -140,7 +140,7 @@ element {
 
 element selected.normal {
     background-color:            var(alternate-background);
-    text-color:                  var(foreground-alt);
+    text-color:                  var(foreground-colour);
 }
 
 element-icon {

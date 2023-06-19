@@ -6,5 +6,5 @@
     background-alt:         #282B31FF;
     foreground:             #FFFFFFFF;
     foreground-alt:         #010101FF;
-    selected:               #7c94bfBB;
+    selected:               #4f4f4fA6;
 }
