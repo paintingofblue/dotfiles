@@ -23,43 +23,110 @@ get_battery() {
 get_baticon() {
     BAT=$(ls /sys/class/power_supply | grep BAT | head -n 1)
     BATSTATUS="$(cat /sys/class/power_supply/"${BAT}"/status)"
-    BATVAL="$(cat /sys/class/power_supply/"${BAT}"/capacity)"
 
-    if [[ "$BATSTATUS" == "Discharging" ]];
+    BATVAL="$(cat /sys/class/power_supply/"${BAT}"/capacity)"
+    BATVAL_DIV10=$(echo "$BATVAL/10" | bc -q)
+    BATVAL_ROUNDED=$(echo "($BATVAL_DIV10 * 10)" | bc )
+
+
+    if [ "$BATVAL_ROUNDED" == "100" ];
     then
-        if [ "$BATVAL" -gt 90 ];
+        if [[ "$BATSTATUS" == "Discharging" ]];
+        then
+            echo "󰁹"
+        else
+            echo "󰂅"
+        fi
+
+    elif [ "$BATVAL_ROUNDED" == "90" ];
+    then
+        if [[ "$BATSTATUS" == "Discharging" ]];
         then
             echo "󰂂"
-        elif [ "$BATVAL" -gt 80 ];
+        else
+            echo "󰂋"
+        fi
+
+    elif [ "$BATVAL_ROUNDED" ==  "80" ];
+    then
+        if [[ "$BATSTATUS" == "Discharging" ]];
         then
             echo "󰂁"
-        elif [ "$BATVAL" -gt 70 ];
+        else
+            echo "󰢞"
+        fi
+
+    elif [ "$BATVAL_ROUNDED" ==  "70" ];
+    then
+        if [[ "$BATSTATUS" == "Discharging" ]];
         then
             echo "󰂀"
-        elif [ "$BATVAL" -gt 60 ];
+        else
+            echo "󰢞"
+        fi
+
+    elif [ "$BATVAL_ROUNDED" ==  "60" ];
+    then
+        if [[ "$BATSTATUS" == "Discharging" ]];
         then
             echo "󰁾"
-        elif [ "$BATVAL" -gt 50 ];
+        else
+            echo "󰢝"
+        fi
+
+    elif [ "$BATVAL_ROUNDED" ==  "50" ];
+    then
+        if [[ "$BATSTATUS" == "Discharging" ]];
         then
             echo "󰁾"
-        elif [ "$BATVAL" -gt 40 ];
+        else
+            echo "󰢝"
+        fi
+
+    elif [ "$BATVAL_ROUNDED" ==  40 ];
+    then
+        if [[ "$BATSTATUS" == "Discharging" ]];
         then
             echo "󰁽"
-        elif [ "$BATVAL" -gt 30 ];
+        else
+            echo "󰂇"
+        fi
+
+    elif [ "$BATVAL_ROUNDED" ==  30 ];
+    then
+        if [[ "$BATSTATUS" == "Discharging" ]];
         then
             echo "󰁼"
-        elif [ "$BATVAL" -gt 20 ];
+        else
+            echo "󰂇"
+        fi
+
+    elif [ "$BATVAL_ROUNDED" ==  20 ];
+    then
+        if [[ "$BATSTATUS" == "Discharging" ]];
         then
             echo "󰁻"
-        elif [ "$BATVAL" -gt 10 ];
+        else
+            echo "󰢜"
+        fi
+
+    elif [ "$BATVAL_ROUNDED" ==  10 ];
+    then
+        if [[ "$BATSTATUS" == "Discharging" ]];
         then
             echo "󰁺"
-        elif [ "$BATVAL" -gt 0 ];
+        else
+            echo "󰢜"
+        fi
+
+    elif [ "$BATVAL_ROUNDED" ==  0 ];
+    then
+        if [[ "$BATSTATUS" == "Discharging" ]];
         then
             echo "󱃍"
+        else
+            echo "󰢜"
         fi
-    else
-        echo "󰁹"
     fi
 }
 
@@ -84,6 +151,7 @@ toggle_vol() {
 # Get Volume Icon
 get_volicon() {
     MUTE="$(pactl get-sink-mute @DEFAULT_SINK@)"
+
     if [[ "$MUTE" == "Mute: no" ]];
     then
         echo "󰕾"
@@ -158,7 +226,6 @@ get_bluetooth() {
 # Toggle Bluetooth
 toggle_bluetooth() {
     status=$(bluetoothctl show | grep Powered  | awk '{print $2}')
-    notify-send "Bluetooth" "Bluetooth is $status"
 
     if [ "$status" == "yes" ];
     then
@@ -166,12 +233,6 @@ toggle_bluetooth() {
     else
         bluetoothctl power on
     fi
-}
-
-# <-- System tray -->
-sys_tray() {
-    network=$(get_net)
-    echo "${network::1}" "" $(get_baticon) $(get_volicon)
 }
 
 # <-- Main -->

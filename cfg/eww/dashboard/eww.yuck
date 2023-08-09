@@ -1,12 +1,12 @@
 ;; ** Variables ***********************************************************************
 ;; System vars
-(defpoll BLIGHT :interval "0.001s" `bash ../scripts/sys_info --get-blight`)
+(defpoll BLIGHT :interval "0.1s" `bash ../scripts/sys_info --get-blight`)
 (defpoll BATTERY :interval "1s" `bash ../scripts/sys_info --bat`)
 (defpoll BATTERYICON :interval "1s" `bash ../scripts/sys_info --baticon`)
 (defpoll BLUETOOTH :interval "0.1s" `bash ../scripts/sys_info --get-bluetooth`)
-(defpoll VOLUME :interval "0.001s" `bash ../scripts/sys_info --get-vol`)
+(defpoll VOLUME :interval "0.1s" `bash ../scripts/sys_info --get-vol`)
 (defpoll VOLUMEICON :interval "0.1s" `bash ../scripts/sys_info --get-volicon`)
-(defpoll MIC :interval "0.001s" `bash ../scripts/sys_info --get-mic`)
+(defpoll MIC :interval "0.1s" `bash ../scripts/sys_info --get-mic`)
 (defpoll MICICON :interval "0.1s" `bash ../scripts/sys_info --get-micicon`)
 (defpoll NET :interval "0.1s" `bash ../scripts/sys_info --get-net`)
 

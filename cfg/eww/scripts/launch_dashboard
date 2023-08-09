@@ -4,7 +4,6 @@
 FILE="$HOME/.cache/eww_launch.dashboard"
 CFG="$HOME/.config/eww/dashboard"
 
-
 run_eww() {
 	eww daemon
 	until pid=$(pidof eww)

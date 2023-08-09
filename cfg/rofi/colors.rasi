@@ -2,9 +2,12 @@
 
 * {
     background:             #0c0c0c;
-    background-transparent: #0c0c0cBB;
+    background-transparent: rgba(12, 12, 12, 0.9);
     background-alt:         #282B31FF;
     foreground:             #FFFFFFFF;
     foreground-alt:         #010101FF;
-    selected:               #4f4f4fA6;
+    selected:               #a39ec4e6;
+    border-colour:          #FFFFFF;
 }
+
+// selected color is 4f4f4fe6

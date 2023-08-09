@@ -7,6 +7,7 @@ polybar -r &
 flameshot &
 dunst &
 xsetroot -cursor_name left_ptr &
+ulimit -n 4096
 
 # xinput --> get desired id
 # xinput list-props id --> get desired props

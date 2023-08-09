@@ -1,5 +1,6 @@
 #!/bin/bash
 
+theme="$HOME/.config/rofi/powermenu/powermenu.rasi"
 lock=" Lock"
 logout="󰍃 Logout"
 shutdown=" Poweroff"
@@ -13,17 +14,13 @@ reboot=" Reboot"
 # then
 #     loginctl suspend
 
-selected_option=$(echo "$lock
-$logout
-$reboot
-$shutdown" | rofi -dmenu -i -p "Powermenu" -theme "$HOME/.config/rofi/powermenu.rasi")
+selected_option=$(echo -e "$lock\n$logout\n$reboot\n$shutdown" | rofi -dmenu -i -p "Powermenu" -theme "$theme")
 
 if [ "$selected_option" == "$lock" ]
 then
     betterlockscreen -l
 elif [ "$selected_option" == "$logout" ]
 then
-    # loginctl terminate-user `whoami`
     bspc quit
 elif [ "$selected_option" == "$shutdown" ]
 then

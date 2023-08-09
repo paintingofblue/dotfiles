@@ -1,14 +1,13 @@
 /*****----- Configuration -----*****/
 configuration {
-	modi:                       "drun";
+	modi:                       "window";
     show-icons:                 true;
-    display-drun:               "Apps :";
-	drun-display-format:        "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
-	window-format:              "{w} · {c} · {t}";
+    display-window:              "Windows:";
+	window-format:              "{c} · {t}";
 }
 
 /*****----- Global Properties -----*****/
-@import                          "colors.rasi"
+@import                          "../colors.rasi"
 
 * {
     border-colour:               var(selected);
@@ -17,7 +16,7 @@ configuration {
     alternate-background:        var(selected);
 	alternate-foreground:		 var(background);
 
-    font:                        "monospace 15";
+    font:                        "monospace 16";
 }
 
 /*****----- Main Window -----*****/
@@ -27,8 +26,8 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  true;
-    width:                       1366px;
-    height:                      768px;
+    width:                       1920px;
+    height:                      1080px;
     x-offset:                    0px;
     y-offset:                    0px;
 
@@ -118,8 +117,8 @@ listview {
 }
 
 scrollbar {
-    handle-width:                5px ;
-    handle-color:                @handle-colour;
+    handle-width:                5px;
+    handle-color:                @foreground-colour;
     border-radius:               0px;
     background-color:            @alternate-background;
 }
@@ -138,7 +137,12 @@ element {
     cursor:                      pointer;
 }
 
-element selected.normal {
+element selected {
+    background-color:            var(alternate-background);
+    text-color:                  var(foreground-colour);
+}
+
+element default {
     background-color:            var(alternate-background);
     text-color:                  var(foreground-colour);
 }

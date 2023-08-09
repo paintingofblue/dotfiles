@@ -1,15 +1,14 @@
 /** Global *******************************************/
-// $accent: #7c94bf;
 $accent: #fff;
 $accent-secondary: darken($accent, 10%);
-$bg: #131313;
-$bg-secondary: lighten($bg, 3%);
+$bg: #191919;
+$bg-secondary: #262626;
 $bg-tertiary: lighten($bg-secondary, 5%);
 $bg-tertiary-alt: #313131;
 
 * {
     all: unset;
-    font-family: Ubuntu Mono Nerd Font;
+    font-family: 'Iosevka Nerd Font', 'Ubuntu Nerd Font Mono', monospace;
     color: $accent;
 }
 
@@ -28,11 +27,8 @@ $bg-tertiary-alt: #313131;
 }
 
 /* Network ********************************************/
-// .btn_net {}
-
 .network {
     font-size: 22px;
-    /*color: #f7e1d3;*/
 }
 
 /* Bluetooth ******************************************/
@@ -42,7 +38,6 @@ $bg-tertiary-alt: #313131;
 
 .bluetooth {
     font-size: 26px;
-    // /*color: #f7e1d3;*/
 }
 
 /* Battery **********************************************/
@@ -68,7 +63,6 @@ $bg-tertiary-alt: #313131;
 .iconbright {
     font-size: 32px;
     font-weight: normal;
-    /*color: #eed49f;*/
 }
 
 .bright_bar scale trough {
@@ -83,7 +77,7 @@ $bg-tertiary-alt: #313131;
 .bright_bar scale trough highlight {
     all: unset;
     border-radius: 16px;
-    /*background-color: #eed49f;*/
+
     background-color: $accent;
 }
 
@@ -139,14 +133,12 @@ $bg-tertiary-alt: #313131;
 }
 
 .song {
-    // color: #8FBCBB;
     font-size: 23px;
     font-weight: bold;
     margin: 30px 0px 0px 0px;
 }
 
 .artist {
-    // color: #Eed49f;
     font-size: 16px;
     font-weight: normal;
     margin: 0px 0px 15px 0px;
@@ -185,7 +177,6 @@ calendar:selected {
 }
 
 calendar.header {
-    // color: #a1bdce;
     color: $accent-secondary;
     font-weight: bold;
 }
@@ -195,12 +186,10 @@ calendar.button {
 }
 
 calendar.highlight {
-    // color: #a1bdce;
     font-weight: bold;
 }
 
 calendar:indeterminate {
-    // color: #242424;
     color: $bg-tertiary-alt;
 }
 

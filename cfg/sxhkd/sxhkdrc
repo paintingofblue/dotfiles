@@ -4,17 +4,20 @@
 # WM independent hotkeys
 #
 
+alt + Tab
+	bash "$HOME"/.config/rofi/alt_tab/alt_tab.sh
+
 # Terminal emulator
 super + Return
 	kitty
 
 # Program launcher
 super + @space
-	bash "$HOME"/.config/rofi/launcher.sh
+	bash "$HOME"/.config/rofi/launcher/launcher.sh
 
 # Powermenu
 super + p
-	bash "$HOME"/.config/rofi/powermenu.sh
+	bash "$HOME"/.config/rofi/powermenu/powermenu.sh
 
 # lock
 super + F10
@@ -51,6 +54,9 @@ XF86MonBrightnessDown
 XF86MonBrightnessUp
 	brightnessctl s 10+
 
+# Mic
+F8
+	bash pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # Screenshot
 super + F12
