@@ -1,13 +1,6 @@
-/* COLORS */
-
 * {
-    background:             #0c0c0c;
-    background-transparent: rgba(12, 12, 12, 0.9);
-    background-alt:         #282B31FF;
-    foreground:             #FFFFFFFF;
-    foreground-alt:         #010101FF;
+    // main-bg:                #0c0c0c;
+    background:             rgba(12, 12, 12, 0.9);
+    text:                   #FFFFFF;
     selected:               #a39ec4e6;
-    border-colour:          #FFFFFF;
 }
-
-// selected color is 4f4f4fe6

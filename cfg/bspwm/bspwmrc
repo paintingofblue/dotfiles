@@ -2,7 +2,7 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 feh --bg-scale "$HOME"/.config/background &
-picom --experimental-backends &
+picom &
 polybar -r &
 flameshot &
 dunst &
@@ -28,6 +28,10 @@ bspc config top_padding            40
 
 bspc config pointer_follows_focus  false
 bspc config focus_follows_pointer  true
+
+
+# Unblocking wifi (im lazy)
+rfkill unblock all
 
 betterlockscreen -u "$HOME"/.config/background
 xss-lock -- betterlockscreen -l
