@@ -33,7 +33,7 @@
                     (label :class "iconvolume" :text VOLUMEICON)
                 )
 
-                (scale :min 0 :max 100 :value VOLUME :active "true" :onchange "bash ../scripts/sys_info --set-vol {}")
+                (scale :min 0 :max 101 :value VOLUME :active "true" :onchange "bash ../scripts/sys_info --set-vol {}")
             )
 
             (box :class "mic_bar" :orientation "h" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false"

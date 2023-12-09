@@ -6,10 +6,12 @@ CFG="$HOME/.config/eww/dashboard"
 
 run_eww() {
 	eww daemon
-	until pid=$(pidof eww)
+
+	until pidof eww
 	do
 		sleep 1
 	done
+
 	eww --config "$CFG" open dashboard
 }
 

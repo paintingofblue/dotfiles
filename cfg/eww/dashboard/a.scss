@@ -1,10 +1,10 @@
 /** Global *******************************************/
 $accent: #fff;
 $accent-secondary: darken($accent, 10%);
-$bg: #191919;
-$bg-secondary: #262626;
-$bg-tertiary: lighten($bg-secondary, 5%);
-$bg-tertiary-alt: #313131;
+$bg: #111111;
+$bg-secondary: #1e1e1e;
+$bg-secondary-alt: lighten($bg-secondary, 15%);
+$slider-trough: lighten($bg-secondary, 5%);
 
 * {
     all: unset;
@@ -22,7 +22,7 @@ $bg-tertiary-alt: #313131;
 /** Generic window ***********************************/
 .genwin {
     background-color: $bg-secondary;
-    border-radius: 16px;
+    border-radius: 6px;
     padding: 5px;
 }
 
@@ -67,8 +67,8 @@ $bg-tertiary-alt: #313131;
 
 .bright_bar scale trough {
     all: unset;
-    background-color: $bg-tertiary;
-    border-radius: 16px;
+    background-color: $slider-trough;
+    border-radius: 6px;
     min-height: 20px;
     min-width: 240px;
     margin-right: 10px;
@@ -76,8 +76,7 @@ $bg-tertiary-alt: #313131;
 
 .bright_bar scale trough highlight {
     all: unset;
-    border-radius: 16px;
-
+    border-radius: 6px;
     background-color: $accent;
 }
 
@@ -89,8 +88,8 @@ $bg-tertiary-alt: #313131;
 
 .volume_bar scale trough {
     all: unset;
-    background-color: $bg-tertiary;
-    border-radius: 16px;
+    background-color: $slider-trough;
+    border-radius: 6px;
     min-height: 20px;
     min-width: 240px;
     margin-right: 10px;
@@ -98,7 +97,7 @@ $bg-tertiary-alt: #313131;
 
 .volume_bar scale trough highlight {
     all: unset;
-    border-radius: 16px;
+    border-radius: 6px;
     background-color: $accent;
 }
 
@@ -110,8 +109,8 @@ $bg-tertiary-alt: #313131;
 
 .mic_bar scale trough {
     all: unset;
-    background-color: $bg-tertiary;
-    border-radius: 16px;
+    background-color: $slider-trough;
+    border-radius: 6px;
     min-height: 20px;
     min-width: 240px;
     margin-right: 10px;
@@ -119,7 +118,7 @@ $bg-tertiary-alt: #313131;
 
 .mic_bar scale trough highlight {
     all: unset;
-    border-radius: 16px;
+    border-radius: 6px;
     background-color: $accent;
 }
 
@@ -190,7 +189,7 @@ calendar.highlight {
 }
 
 calendar:indeterminate {
-    color: $bg-tertiary-alt;
+    color: $bg-secondary-alt;
 }
 
 /** Power buttons ***************************************/

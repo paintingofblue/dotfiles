@@ -5,6 +5,7 @@
 
 # General bash aliases
 alias ls='ls --color=auto'
+alias lsa='ls -a'
 alias lsr='ls -R'
 alias grep='grep --color=auto'
 alias rmf='rm -rf'
@@ -12,17 +13,6 @@ alias rmf='rm -rf'
 # Python virtual environment (creation and activation)
 alias ve='python3 -m venv ./venv'
 alias va='source ./venv/bin/activate'
-
-# NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# NVM - Node aliases
-alias na='nvm use node'
-alias ninst='nvm install node'
-
-
 
 # Tar utils
 alias untar='tar xzvf'
@@ -35,7 +25,14 @@ eval "$(starship init bash)"
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
 . /usr/share/bash-completion/bash_completion
 
-
 # Path variables
 export PATH="$PATH:/home/$HOME/.local/bin:~/.console-ninja/.bin"
-PATH=~/.console-ninja/.bin:$PATH
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH=$BUN_INSTALL/bin:$PATH
+
+
+
+# Created by `pipx` on 2023-09-19 11:15:02
+export PATH="$PATH:/home/jane/.local/bin"
